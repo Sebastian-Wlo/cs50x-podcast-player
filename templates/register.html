@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block main %}
+    <div class="container-fluid full-height gx-5">
+        <div class="row" style="height: 100%;">
+            <div class="container p-5 px-3" style="width: 30em; height: 25em">
+                <div class="bg-dark rounded-3 p-4">
+                    <h2>Register</h2>
+                    <hr>
+                    <form>
+                        <div class="mb-3">
+                            <p>Name:</p>
+                            <input id="name" name="name" autocomplete="off" autofocus type="text" placeholder="Username">
+                            <p id="name-response"></p>
+                        </div>
+                        <div class="mb-3">
+                            <p>Password:</p>
+                            <input id="password" name="password" autocomplete="off" type="password" placeholder="Password">
+                            <p id="password-response"></p>
+                        </div>
+                        <div class="mb-3">
+                            <p>Repeat Password:</p>
+                            <input id="pswrd_rpt" name="pswrd_rpt" autocomplete="off" type="password" placeholder="Repeat password">
+                            <p id="repeat-response"></p>
+                        </div>
+                        <div class="mb-3">
+                            <button id="submit-button" type="submit">Register</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <h6>Note:</h6>
+                    <p> - your username has to be between 3 and 16 characters long,</p>
+                    <p> - your password needs to be at least 3 characters long.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="/static/reglog.js">
+    </script>
+{% endblock %}

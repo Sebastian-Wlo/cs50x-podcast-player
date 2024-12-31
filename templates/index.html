@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    
+    <div class="container-fluid full-height gx-5">
+        <!-- Page body -->
+        <div class="row" style="height: 90%;">
+            <!-- podcast list - left -->
+            <div class="col-md-3 p-2" style="height: 100%;">
+                <div class="container-fluid bg-dark rounded-3" style="overflow-x: hidden; overflow-y: scroll; height:100%">
+                    <div class="row list-header">
+                        <h2>Podcasts:</h2>
+                    </div>
+                    <div class="row">
+                        <ul id="podcasts-list" class="podcasts-list">
+
+                        </ul>
+                    </div>
+                </div>
+                
+               
+            </div>
+            <!-- main body of the page - center-->
+             <div class="col-md-9 p-2" style="height: 100%">
+                <div id="episode-list-div" class="container-fluid rounded-3 text-white bg-dark" style="overflow-y: scroll; height:100%">
+                    <div class="container-fluid m-0" id="details">
+                        <div class="row">
+                            <div class="row p-3">
+                                <div id="details-image-column" class="col-auto">
+                                    <img id="details-header-image" src="./static/default_image.jpg" style="width: 10vw; max-width: 120px">
+                                </div>
+                                <div id="details-text-header" class="col">
+                                    <h2 id="details-header-title">No podcast selected!</h2>
+                                    <h3 id="details-header-author">Please choose one from the list to display its details</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="details-description">
+                                    <h5>About:</h5>
+                                    <p id="details-header-description"></p>
+                                    <button id="show-more-button" class="btn btn-link" style="visibility: hidden;">Full description</button>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <p id="details-header-publisheddate"></p>
+                                            </div>
+                                            <div class="col-4">
+                                                <p id="details-header-duration"></p>
+                                            </div>
+                                        </div>
+                                </div>
+                                    <!-- Button for starting playback of episode displayen in the details -->
+                                        <button id="details_playbutton" class="btn btn-primary" style="width:10em; margin-bottom: 5px;">
+                                            Play episode <i class="fa fa-play" aria-hidden="true"></i>
+                                        </button>
+                                
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <div id="podcast-list">
+                        <div class="row list-header bg-dark">
+                            <div class="col-auto">
+                                <h4 style="display: inline-block;">Episodes List:</h4>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-secondary" id="sort-order-button">Order: <i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                        <div>
+                            <!-- class "podcasts-list" is a bodge-->
+                            <ul id="episode-list" class="podcasts-list">
+                        
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+             </div>
+        </div>
+        <div id="mp3player" class="row" style="height:10%">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-auto">
+                        <img id="player-img" class="rounded-3" src="./static/default_image.jpg" width="50px">
+                    </div>
+                    
+                    <div class="col" style="overflow: hidden">
+                        <h6 id="title-text" style="text-wrap: nowrap; overflow: hidden;" data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="top" title="tooltip">Episode: Title </h6>
+                        <p id="player-title-text">Author</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 text-center">
+                
+                <div class="row text-center">
+                    <!--</div>-->
+                    <div class="col-fluid">
+                        <button id="back-15s" class="btn btn-secondary" style="border-radius: 100%">
+                            <i class="fa fa-fast-backward" aria-hidden="true"></i>
+                        </button>
+                        <button id="play" class="btn btn-primary" style="border-radius: 100%">
+                            <i class="fa fa-play" aria-hidden="true"></i>
+                        </button>
+                        <button id="forward-15s" class="btn btn-secondary" style="border-radius: 100%">
+                            <i class="fa fa-fast-forward" aria-hidden="true"></i>
+                        </button>
+
+                        <div class="row text-center">
+                            <div class="col-1" style="width: 4em">
+                                <p id="time" style="display: inline">--:--:--</p>
+                            </div>
+                            <div class="col">
+                                <input id="player-progress" type="range" style="display: inline; width:100%;" max="100" min="0" value="0"></input>
+                            </div>
+                            <div class="col-1" style="width: 4em">
+                                <p id="time-whole" style="display: inline;">--:--:--</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <h6>Volume:</h6>
+                <input id="volumeSlider" type="range" style="display: inline; width:78%;" max="100" min="0" value="80"></input> <p id="volumePercent" style="display: inline;"> 80%</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <script 
+    src="/static/mp3_player.js">
+    </script>
+{% endblock %}

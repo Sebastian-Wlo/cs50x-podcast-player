@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block main %}
+<div class="container-fluid full-height gx-5">
+    <div class="row" style="height: 100%;">
+        <div class="container p-5 px-3" style="width: 30em; height: 25em">
+            <div class="bg-dark rounded-3 p-4">
+                <h2>User Settings</h2>
+                <hr>
+                    <h3>Change Password:</h3>
+                    <hr>
+                    <form>
+                        <div class="mb-3">
+                            <p>Old Password:</p>
+                            <input name="old-password" id="old-password" autocomplete="off" type="password" placeholder="Password">
+                            <p id="old-password-response"></p>
+                        </div>
+                        <div class="mb-3">
+                            <p>New Password:</p>
+                            <input name="new-password" id="new-password" autocomplete="off" type="password" placeholder="Password">
+                            <p id="new-password-response"></p>
+                        </div>
+                        <div class="mb-3">
+                            <p>Repeat New Password:</p>
+                            <input name="repeat-password" id="repeat-password" autocomplete="off" type="password" placeholder="Password">
+                            <p id="repeat-response"></p>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" id="submit-password-change-button" class="btn btn-primary">Change Password</button>
+                        </div>
+                    </form>
+                    <h3>Delete Account</h3>
+                    <form method="post">
+                        <div class="mb-3">
+                            <p>Old Password:</p>
+                            <input name="delete-password" id="delete-password" autocomplete="off" type="password" placeholder="Password">
+                            <p id="delete-response"></p>
+                            <button id="delete-account-button" type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </form>
+                <hr>
+                <h6>Note:</h6>
+                <p> - your password needs to be at least 3 characters long.</p>
+                <p> - deleting your account is permanent. It cannot be undone!</p>
+            </div>
+        </div>
+    </div>
+    <script src="/static/usr_settings.js">
+    </script>
+</div>
+{% endblock %}
