@@ -1,4 +1,47 @@
 # Podcast Player
+
+This is my final project submitted for CS50x "Introduction to Computer Science" certification in December 2024.
+
+It is a simple web app written in Flask with SQLite database. The most significant difference from the project submitted to CS50x is the addition of `uv` (for managing dependencies and simplifying the virtual environment use), and the `init_db.py` script, which creates a new database and seeds it with some initial users and podcasts.
+
+## Requirements
+
+- uv Package Manager: [installation instructions](https://docs.astral.sh/uv/getting-started/installation/)
+
+## Project Setup
+
+1. Before running the app for the first time, make sure that `uv` is installed, and then :
+
+    ```bash
+    uv -V #expected output: "uv 0.9.xx"
+    ```
+
+2. Install required packages:
+
+    ```bash
+    uv sync
+    ```
+
+3. Create the app's database and seed it with some initial podcasts and users
+
+    ```bash
+    uv run init_db.py
+    ```
+
+    >[!NOTE]
+    >This script creates three default users:
+    > "admin" with the password "admin",
+    > "user_1" and "user_2", both with the password "password"
+
+## Running the app
+
+Start the Flask server:
+
+```bash
+uv run app.py
+```
+
+---
 #### Video Demo: https://youtu.be/agHFtsYIiHc
 #### Description:
 
