@@ -41,11 +41,23 @@ It is a simple web app written in Flask with SQLite database. The most significa
 
 ## Running the app
 
-Start the Flask server:
+
+### Starting the Flask debug server 
 
 ```bash
 uv run app.py
 ```
+
+Flask development server runs on port 5000.
+
+### Starting the Gunicorn production server
+
+```bash
+source .venv/bin/activate  # Activating the virtual environment
+gunicorn 'app:app'  # Activating the server
+```
+
+Gunicorn server runs on port 8080.
 
 ---
 #### Video Demo: https://youtu.be/agHFtsYIiHc
