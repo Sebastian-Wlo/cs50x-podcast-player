@@ -22,7 +22,9 @@ It is a simple web app written in Flask with SQLite database. The most significa
     uv sync
     ```
 
-3. Create the app's database and seed it with some initial podcasts and users
+3. Create a `.env` file in the project's root folder (you can copy and rename the) `.env.example` file,
+
+4. Create the app's database and seed it with some initial podcasts and users:
 
     ```bash
     uv run init_db.py
