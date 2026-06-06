@@ -1,3 +1,4 @@
+.env
 /db/podcasts.db
 /flask_session
 /__pycache__
