@@ -28,10 +28,14 @@ It is a simple web app written in Flask with SQLite database. The most significa
     uv run init_db.py
     ```
 
-    >[!NOTE]
-    >This script creates three default users:
-    > "admin" with the password "admin",
-    > "user_1" and "user_2", both with the password "password"
+    >[!WARNING]
+    > This script reads the default user's names, passwords and the initial list of podcasts from the `.env` file. MAKE CERTAIN THAT THE FILE EXISTS AND CONTAINS THE FOLLOWING VARIABLES:
+    >
+    > ADMIN_USERNAME= string  
+    > ADMIN_PASSWORD= string  
+    > TEST_USER_USERNAME= string  
+    > TEST_USER_PASSWORD= string  
+    > EXAMPLE_PODCASTS =  string[]  
 
 ## Running the app
 
