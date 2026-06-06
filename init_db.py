@@ -4,9 +4,34 @@ from pathlib import Path
 import dbhelpers
 import datetime
 from werkzeug.security import generate_password_hash
-
+import os
+from dotenv import load_dotenv
+import json
+import sys
 
 podcasts_db_path = "./db/podcasts.db"
+
+# Load required all required environment variables, exit early if missing any
+load_dotenv()
+env_variables = {
+    'admin_username': os.getenv("ADMIN_USERNAME"),
+    'admin_password': os.getenv("ADMIN_PASSWORD"),
+    'test_user_username': os.getenv("TEST_USER_USERNAME"),
+    'test_user_password': os.getenv("TEST_USER_PASSWORD"),
+    'example_podcasts': os.getenv("EXAMPLE_PODCASTS"),
+}
+
+all_env_vars_available = True
+
+for env_var in env_variables:
+    if env_variables[env_var] is None:
+        print(env_var, "is missing from the from environment variables.")
+        all_env_vars_available = False
+
+if not all_env_vars_available:
+    print("Cannot load all required environment variables - make sure the required variables exist.")
+    sys.exit(1)
+
 
 table_schemas = {
     "users": '''
@@ -44,16 +69,11 @@ CREATE TABLE episodes_list (
 }
 
 example_users = [
-    ["admin", generate_password_hash("admin"), datetime.datetime.now()],
-    ["user_1", generate_password_hash("password"), datetime.datetime.now()],
-    ["user_2", generate_password_hash("password"), datetime.datetime.now()],    
+    [env_variables["admin_username"], generate_password_hash(env_variables["admin_password"]), datetime.datetime.now()],
+    [env_variables["test_user_username"], generate_password_hash(env_variables["test_user_password"]), datetime.datetime.now()],
 ]
 
-example_podcasts = [
-    "https://feeds.libsyn.com/110110/rss",
-    "https://feeds.megaphone.fm/GNL2128031227",
-    "http://feeds.libsyn.com/426404/rss"
-]
+example_podcasts = json.loads(env_variables['example_podcasts'])
 
 if not Path(podcasts_db_path).is_file():
     try:
