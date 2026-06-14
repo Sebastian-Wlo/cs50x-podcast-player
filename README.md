@@ -4,6 +4,8 @@ This is my final project submitted for CS50x "Introduction to Computer Science" 
 
 It is a simple web app written in Flask with SQLite database. The most significant difference from the project submitted to CS50x is the addition of `uv` (for managing dependencies and simplifying the virtual environment use), and the `init_db.py` script, which creates a new database and seeds it with some initial users and podcasts.
 
+The project is deployed, and can be viewed here: [podcast-player.sebastian-wlo.com](https://podcast-player.sebastian-wlo.com/)
+
 ## Requirements
 
 - uv Package Manager: [installation instructions](https://docs.astral.sh/uv/getting-started/installation/)
